@@ -27,34 +27,40 @@ function modalErrorService(modal) {
     })
 }
 
+function hiddenLoading(advertisementContainer) {
+    const loadingElement = advertisementContainer.querySelector('.lds-ellipsis');
+    loadingElement.classList.add('hidden');
+}
+
 export async function advertisementListViewController(element){
     let wrapperAdvertisementList = buildWrapperLayout();
     let errorService = buildModalError('Hubo un problema', 'Se ha producido un error al cargar los productos.', 'Entendido');
     let loadingELement = buildLoading();
     element.appendChild(wrapperAdvertisementList);
     element.appendChild(errorService);
-    const productContainer = document.querySelector('#product-container');
-    let advertisementElement = '';
-    
+    const advertisementContainer = document.querySelector('#product-container');
+
+    advertisementContainer.appendChild(loadingELement);
+
     let dataAdvertisementList = await getDataAsync();
     
-    productContainer.appendChild(loadingELement);
+    hiddenLoading(advertisementContainer);
 
     if(dataAdvertisementList.hasOwnProperty('advertisements')) {
         if(dataAdvertisementList.advertisements.length !== 0) {
-            productContainer.removeChild(loadingELement);
             for (let advertisement of dataAdvertisementList.advertisements) {
-                advertisementElement = buildAdvertisementList(advertisement);
-                productContainer.appendChild(advertisementElement);
+                const advertisementElement = buildAdvertisementList(advertisement);
+                advertisementContainer.appendChild(advertisementElement);
             }
         }else {
-            productContainer.removeChild(loadingELement);
-            messageEmptyAdvertisement(productContainer);
+            advertisementContainer.removeChild(loadingELement);
+            messageEmptyAdvertisement(advertisementContainer);
         }
     }else {
-        messageEmptyAdvertisement(productContainer);
+        messageEmptyAdvertisement(advertisementContainer);
         modalErrorService(errorService);
     }
+
 
 
 }

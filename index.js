@@ -1,5 +1,8 @@
-import { advertisementListViewController } from "./advertisementListComponent/advertisementListController.js";
+import { advertisementListViewController } from "./advertisementList/advertisementListController.js";
+import { headerController } from "./header/headerController.js";
 
-const appTag = document.querySelector('#app');
+const bodyTag = document.querySelector('body');
+const tagList = document.querySelector('#app-list');
 
-advertisementListViewController(appTag);
+headerController(bodyTag, tagList);
+advertisementListViewController(tagList);

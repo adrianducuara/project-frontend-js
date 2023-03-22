@@ -20,6 +20,8 @@ export function buildWrapperLayout() {
 }
 
 export function buildAdvertisementList(data) {
+    const anchorTarget = buildElementHTMLAttr('a', 'href', `/detail/${data.id}`);
+    anchorTarget.setAttribute('id', 'item-navigate');
     const divTargetContainer = buildElementHTMLAttr('div', 'class', 'group relative');
     divTargetContainer.innerHTML = `
             <div
@@ -42,7 +44,9 @@ export function buildAdvertisementList(data) {
             </div>
     `;
     
-    return divTargetContainer;
+    anchorTarget.appendChild(divTargetContainer);
+
+    return anchorTarget;
 }
 
 export function buildLoading() {
