@@ -11,10 +11,9 @@ export async function loginUser(email, password) {
             "Content-Type": "application/json"
         }
     })
-
     if(!response.ok) {
-        throw new Error('Error al identificar el usuario.');
-    }
+        throw new Error('Se ha presentado problemas para iniciar sesión.');
+    }   
 
     const data = await response.json();
 

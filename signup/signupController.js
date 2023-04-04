@@ -4,6 +4,7 @@ import { buildFormSignup } from "./signupView.js";
 
 export function signupController(signupElement) {
     signupElement.appendChild(buildFormSignup());
+    
     const signupForm = signupElement.querySelector('#signup-form');
     const emailAddress = signupElement.querySelector('#email-address');
     const password = signupElement.querySelector('#password');
@@ -26,7 +27,7 @@ export function signupController(signupElement) {
                 alert(error.message);
             }
         }else {
-            alert('Correo electrónico y/o contraseñas no son iguales');
+            alert('Correo electrónico y/o contraseña incorrectos.');
         }
         
 

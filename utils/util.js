@@ -26,3 +26,9 @@ export function hiddenTagElement(elem_1, elem_2) {
         elem_2.classList.toggle('hidden');
     });
 }
+
+export function deleteMoreElement(Arrayelem) {
+    Arrayelem.forEach(element => {
+        element.remove();
+    });
+}

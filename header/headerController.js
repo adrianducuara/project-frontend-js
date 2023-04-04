@@ -27,6 +27,8 @@ export function headerController(bodyElement, containerAdvertisement) {
 
         buildGreeting(payload.username, linkCreateDesktop);
         buildGreeting(payload.username, linkCreateMobile);
+        buildButtonLogout('Cerrar sesión', linkCreateDesktop);
+        buildButtonLogout('Cerrar sesión', linkCreateMobile);
 
     } else {
         const linkCreateDesktop = bodyElement.querySelector('#link-create-desktop');
@@ -43,4 +45,21 @@ function buildGreeting(name, containerElem) {
     const phraseGrerting = buildElementHTMLAttr('p', 'class', 'text-sm font-semibold leading-6 text-gray-900');
     phraseGrerting.textContent = `Hola ${name}`;
     containerElem.appendChild(phraseGrerting);
+}
+function buildButtonLogout(name, containerElem) {
+    const logoutButton = buildElementHTMLAttr('button', 'class', 'logout-button text-sm font-semibold leading-6 text-gray-900');
+    logoutButton.textContent = `${name}`;
+    containerElem.appendChild(logoutButton);
+    handleLogoutButton(containerElem);
+}
+
+function handleLogoutButton(containerElem) {
+    const logoutButton = containerElem.querySelector('.logout-button');
+    logoutButton.addEventListener('click', () => {
+        const logoutConfirm = confirm('¿Quieres salir de la aplicación?');
+        if(logoutConfirm) {
+            localStorage.removeItem('token');
+            window.location.reload();
+        }
+    });
 }

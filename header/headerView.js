@@ -19,7 +19,7 @@ export function builHeaderAction() {
         </button>
       </div>
       <div id="link-create-desktop" class="hidden lg:flex lg:gap-x-12">
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Crear anuncios</a>
+        <a href="create.html" class="text-sm font-semibold leading-6 text-gray-900">Crear anuncios</a>
         <p class="text-sm font-semibold leading-6 text-gray-900"></p>
       </div>
       <div id="link-account-desktop" class="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -46,7 +46,7 @@ export function builHeaderAction() {
         <div class="mt-6 flow-root">
           <div class="-my-6 divide-y divide-gray-500/10">
             <div id="link-create-mobile" class="space-y-2 py-6">
-              <a href="#" class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Crear anuncios</a>
+              <a href="create.html" class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Crear anuncios</a>
             </div>
             <div id="link-account-mobile" class="py-6">
               <a href="/login.html" class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Iniciar sesión</a>

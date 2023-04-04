@@ -4,7 +4,6 @@ import { buildLoginForm } from "./signinView.js";
 
 export function signinController(signinElement) {
     signinElement.appendChild(buildLoginForm());
-    const signinForm = signinElement.querySelector('#signin-form');
     const emailInput = signinElement.querySelector('#email-address');
     const passwordInput = signinElement.querySelector('#password');
 
